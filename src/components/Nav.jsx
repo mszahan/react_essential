@@ -9,6 +9,7 @@ function Nav () {
             <Link to='/github'>Github</Link>
             <Link to='/graph'>GraphQL</Link>
             <Link to='/rends'>Render Props</Link>
+            <Link to='/nesting'>Nesting</Link>
         </div>
     )
 }

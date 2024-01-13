@@ -7,6 +7,7 @@ import Github from './components/Github';
 import GraphQl from './components/GraphApi';
 import Rends from './components/RendProp';
 import Nav from './components/Nav';
+import { Nested, Nesting } from './components/Nesting';
 
 function Header(props) {
   return(
@@ -101,6 +102,9 @@ function App() {
     <Route path='/github' element={<Github/>}/>
     <Route path='/graph' element={<GraphQl/>}/>
     <Route path='/rends' element={<Rends/>}/>
+    <Route path='/nesting' element={<Nesting/>}>
+      <Route path='nested' element={<Nested/>}/>
+    </Route>
   </Routes>
 
 <Footer year={new Date().getFullYear()}/>
