@@ -40,3 +40,20 @@
 footer {
   margin-top: 5rem;
 }
+
+.nav {
+  display: flex;
+  gap: 2rem;
+  justify-content: flex-end;
+  padding: 2rem;
+}
+
+.nav a {
+  text-decoration: none;
+  color: black;
+
+}
+
+.nav a:hover {
+  color: #61dafb;
+}
