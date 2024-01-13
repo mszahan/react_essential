@@ -2,6 +2,7 @@ import react from 'react';
 import './App.css';
 import exome from "./exomeit.png";
 import ColorForm from './components/ColorForm';
+import Github from './components/Github';
 
 function Header(props) {
   return(
@@ -85,6 +86,8 @@ function App() {
       {/* to solve this issue we are passing the object now */}
       <Main adjective="horrible" services={serviceObjects}/>
       <ColorForm/>
+      <Github/>
+
       <Footer year={new Date().getFullYear()}/>
 
       
