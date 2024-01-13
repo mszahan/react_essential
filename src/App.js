@@ -1,10 +1,12 @@
 import react from 'react';
+import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import exome from "./exomeit.png";
 import ColorForm from './components/ColorForm';
 import Github from './components/Github';
 import GraphQl from './components/GraphApi';
 import Rends from './components/RendProp';
+import Nav from './components/Nav';
 
 function Header(props) {
   return(
@@ -71,32 +73,41 @@ const serviceObjects = services.map((service, i) => ({id: i, title: service}))
 // how the i indicates the zero index automatically?? need to learn
 // console.log(serviceObjects)
 
+function Home () {
+  return (
+    <>
+         {/* this is like python but in reverse type of mode */}
+         <Header name="Sarwar"/>
+
+
+        {/* the previous one was that was causing the key issue  
+        <Main adjective="horrible" services={services}/> */}
+
+        {/* to solve this issue we are passing the object now */}
+        <Main adjective="horrible" services={serviceObjects}/>
+    </>
+  )
+}
 
 function App() {
   return (
 
     // you also need this wrapper div to avoid error like happend in case of second app
-    <div className="App">
+<>
+  <Nav/>
+  <Routes>
+    <Route path='/' element={<Home/>}/>
+    <Route path='/color' element={<ColorForm/>}/>
+    <Route path='/github' element={<Github/>}/>
+    <Route path='/graph' element={<GraphQl/>}/>
+    <Route path='/rends' element={<Rends/>}/>
+  </Routes>
 
-     {/* this is like python but in reverse type of mode */}
-     <Header name="Sarwar"/>
+<Footer year={new Date().getFullYear()}/>
 
-
-     {/* the previous one was that was causing the key issue  
-      <Main adjective="horrible" services={services}/> */}
-
-      {/* to solve this issue we are passing the object now */}
-      <Main adjective="horrible" services={serviceObjects}/>
-      <ColorForm/>
-      <Github/>
-      <GraphQl/>
-      <Rends/>
-
-
-      <Footer year={new Date().getFullYear()}/>
+</>
 
       
-    </div>
   );
 }
 
