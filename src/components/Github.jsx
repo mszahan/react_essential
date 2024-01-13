@@ -14,30 +14,38 @@ function GithubUser ({name, avatar}) {
 
 function Github () {
     const [data, setData] = useState(null);
+    const [error, setErrror] = useState(null);
+    const [loading, setLoading] = useState(false);
     
-
     useEffect(()=> {
+        setLoading(true)
         fetch(
             `https://api.github.com/users/mszahan`
             )
             .then((response) => response.json())
-            .then(setData);
+            .then(setData)
+            .then(() => setLoading(false))
+            .catch(setErrror);
     }, [])
 
-    if (data)
-        return(
-            <GithubUser
-            name={data.name}
-            avatar={data.avatar_url}
-            />
-            // <pre> {JSON.stringify(data, null, 2)} </pre>
-            )
+    if (loading) return <h1>Loading ...</h1>
+    if (error)
+        return <pre>{JSON.stringify(error)}</pre>
+    if (!data) return null;
 
-    return (
-        <div className="github-data">
-           <h1>The github Data</h1> 
-        </div>
-)
+    return(
+        <GithubUser
+        name={data.name}
+        avatar={data.avatar_url}
+        />
+        // <pre> {JSON.stringify(data, null, 2)} </pre>
+        )
+
+//     return (
+//         <div className="github-data">
+//            <h1>The github Data</h1> 
+//         </div>
+// )
 }
 
 export default Github;
