@@ -3,6 +3,7 @@ import './App.css';
 import exome from "./exomeit.png";
 import ColorForm from './components/ColorForm';
 import Github from './components/Github';
+import GraphQl from './components/GraphApi';
 
 function Header(props) {
   return(
@@ -87,6 +88,7 @@ function App() {
       <Main adjective="horrible" services={serviceObjects}/>
       <ColorForm/>
       <Github/>
+      <GraphQl/>
 
       <Footer year={new Date().getFullYear()}/>
 
