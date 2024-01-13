@@ -4,6 +4,7 @@ import exome from "./exomeit.png";
 import ColorForm from './components/ColorForm';
 import Github from './components/Github';
 import GraphQl from './components/GraphApi';
+import Rends from './components/RendProp';
 
 function Header(props) {
   return(
@@ -89,6 +90,8 @@ function App() {
       <ColorForm/>
       <Github/>
       <GraphQl/>
+      <Rends/>
+
 
       <Footer year={new Date().getFullYear()}/>
 
